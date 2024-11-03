@@ -10,8 +10,26 @@ def get_stations_country(country: str):
     return response.json()
 
 def get_stations_intext(area: str):
-    response = requests.get(f"https://de1.api.radio-browser.info/json/stations/byname/{area}", timeout=5)
-    return response.json()
+    try:
+        response = requests.get(f"https://de1.api.radio-browser.info/json/stations/byname/{area}", timeout=5)
+        response.raise_for_status()  # Raises an HTTPError for 4xx/5xx responses
+
+        # Check if the response is JSON and contains data
+        if response.headers.get('Content-Type') == 'application/json':
+            return response.json()
+        else:
+            print("Unexpected content type:", response.headers.get('Content-Type'))
+            return []
+
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error occurred: {http_err}")
+    except requests.exceptions.RequestException as req_err:
+        print(f"Request error occurred: {req_err}")
+    except ValueError:
+        print("Failed to parse JSON - the response may be empty or in an unexpected format.")
+    
+    return []
+
 
 # dont use this, doesnt work right, use intext.
 def get_stations_region(country: str, state: str):
@@ -105,3 +123,5 @@ def main():
     stations = radio_lookup("Japan", "Kansai", "Kyoto", 3)
     for name, info in stations.items():
         print(f"Station: {name}, URL: {info['url']}, Relevance: {info['relevance']}, Server Type: {info['server_type']}")
+
+main()
