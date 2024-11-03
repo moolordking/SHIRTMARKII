@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HearNow</title>
+</head>
+<body>
+	<div id="MainWrapper">
+		<div id="MainWindow">
+			<div id="PermissionsScreen" onclick="setLocation()">
+				<h1 class='LargeText'>Allow<br><span class='odd'>Location</span><br>Access</h1>
+			</div>
+			<div id="Contents">
+				<div id="ArtistAvatar"></div>
+				<iframe id="Embed" src="https://open.spotify.com/embed/track/5KUNwkaNf8l5A9sXZhiCgI?si=47a1fcd7016d45de" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+				<!-- <div id="SongProgress">
+					<div id="ProgressBar"></div>
+				</div> -->
+				<!-- <div id="SongArtist">Dancing Queen <span class='odd'>-</span> ABBA</div> -->
+				<div id="Map"></div>
+				<div id="LocationText">Hear</br><span class='odd' id='Location'></span></br>Now</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="{{ url_for('static', filename='databasemanagement.js') }}"></script>
+	<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>

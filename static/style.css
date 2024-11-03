@@ -1,0 +1,206 @@
+
+:root {
+	--background: #CEF4DD; /* mint */
+	--standout: #FB6D92; /* fuschia */
+	--highlight: #FFFFFF; /* white */
+	--lowlight: #635F7D; /* dark purple */
+	--alternate-lowlight: #8782A8; /* darkish purple */
+	--font: "Palanquin Dark", monospace; /* font */
+}
+
+html, body {
+	background-color: var(--background);
+	margin:  0;
+	padding: 0;
+	width:  100%;
+	height: 100%;
+}
+
+#MainWrapper {
+	width:  100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button {
+	transition: box-shadow 0.5s;
+	background-color: var(--standout);
+	color: var(--highlight);
+	border: none;
+	box-shadow: -10px 10px 0px var(--lowlight);
+	font-size: 80px;
+	font-family: var(--font);
+	cursor: pointer;
+	padding: 10px;
+	animation: drop-in 1s;
+}
+
+button:hover {
+	box-shadow: -7px 7px 0px var(--lowlight),inset 0px 0px 0px 5px var(--highlight);
+}
+
+#MainWindow {
+	transition: box-shadow 0.5s, width 2s;
+	background-color: var(--standout);
+	width:   500px;
+	height: 1000px;
+	box-shadow: -10px 10px 0px var(--lowlight);
+	animation: drop-in 0.5s;
+}
+
+#PermissionsScreen {
+	transition: opacity 0.5s, box-shadow 1s;
+	position: absolute;
+	width:  500px;
+	height: 1000px;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--alternate-lowlight);
+	cursor: pointer;
+}
+
+#PermissionsScreen:hover {
+	box-shadow: inset 0px 0px 0px 12px var(--highlight);
+}
+
+#PermissionsScreen:hover .LargeText {
+	line-height: 100%;
+	letter-spacing: 5px;
+}
+
+.LargeText {
+	transition: line-height 1s, letter-spacing 1s;
+	color: var(--highlight);
+	font-family: var(--font);
+	text-align: center;
+	font-size: 80px;
+	line-height: 80%;
+	animation: drop-in 0.5s;
+}
+
+.hide {
+	opacity: 0;
+	pointer-events: none;
+}
+
+#Contents {
+	display: none;
+}
+
+#MainWindow:hover {
+	box-shadow: -15px 15px 0px var(--lowlight),inset 0px 0px 0px 5px var(--highlight);
+}
+
+#ArtistAvatar {
+	transition: box-shadow 0.5s, filter 1s;
+	width:  250px;
+	height: 250px;
+	margin: 20px;
+	margin-left:  auto;
+	margin-right: auto;
+	display: block;
+	border-radius: 100%;
+	background-image: url("https://preview.redd.it/k7cttq6goyk71.png?auto=webp&s=826fcac206fdf7774d66cac9eea86b3e73637459");
+	background-size: cover;
+	background-color: var(--highlight);
+	box-shadow: inset 0px 0px 0px 5px var(--background);
+	cursor: pointer;
+}
+
+#ArtistAvatar:hover {
+	box-shadow: inset 0px 0px 0px 5px var(--highlight);
+	filter: grayscale(100%);
+}
+
+#SongProgress {
+	width: 80%;
+	height: 15px;
+	margin-left:  auto;
+	margin-right: auto;
+	display: block;
+	background-color: var(--highlight);
+}
+
+#ProgressBar {
+	width:  0%;
+	height: 100%;
+	border-right: 10px solid var(--alternate-lowlight);
+	background-color: var(--lowlight);
+	animation: progress-bar-example 100s linear infinite;
+	animation-fill-mode: forwards;
+}
+
+#Embed {
+	transition: box-shadow 1s, border 0.5s;
+	display: block;
+	width:  80%;
+	height: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px;
+	box-shadow: -7px 7px 0px var(--lowlight);
+	border: 3px solid var(--alternate-lowlight);
+	animation: drop-in 1s;
+}
+
+#Embed:hover {
+	box-shadow: -10px 10px 0px var(--lowlight);
+	border: 3px solid var(--highlight);
+}
+
+@keyframes progress-bar-example {
+	100% {width: 100%}
+}
+
+#SongArtist {
+	color: var(--lowlight);
+	font-family: var(--font);
+	font-size: 30px;
+	display: block;
+	margin: 20px;
+	text-align: center;
+}
+
+#Map {
+	width:  300px;
+	height: 300px;
+	display: block;
+	margin: 20px;
+	margin-left:  auto;
+	margin-right: auto;
+	background-color: var(--highlight);
+	box-shadow: -10px 10px 0px var(--lowlight);
+	filter: hue-rotate(300deg) brightness(1.15) contrast(0.9);
+}
+
+#LocationText {
+	color: var(--lowlight);
+	font-family: var(--font);
+	font-size: 60px;
+	display: block;
+	margin: 50px;
+	text-align: center;
+	line-height: 90%;
+	animation: drop-in 2s;
+}
+
+@keyframes drop-in {
+	0% {transform: translate(0px, -50px); opacity: 0;}
+}
+
+#Location {
+	font-size: 70px;
+	animation: pulse 1s;
+}
+
+@keyframes pulse {
+	0% {color: var(--highlight); font-size: 0px;}
+}
+
+.odd {
+	color: var(--background);
+}
