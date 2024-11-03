@@ -14,9 +14,10 @@ function getPosition(position) {
 	let place = addRequest(function(position, result) 
 	{
 		place = result.split(":::")[0]
-		songAndImage = result.split(":::")[1];
-		song = songAndImage.split("@")[0]
-		image = songAndImage.split("@")[1]
+		songAndImage = result.split(":::");
+		songAndImage = songAndImage[Math.floor(Math.random()*songAndImage.length-2)+1];
+		song = songAndImage.split("@")[0];
+		image = songAndImage.split("@")[1];
 		document.getElementById("ArtistAvatar").style.backgroundImage = "url("+image+")";
 		loadSong(song);
 		addCity(position, place);
