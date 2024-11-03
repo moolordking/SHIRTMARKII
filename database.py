@@ -184,5 +184,3 @@ def debug():
     cursor = songsCol.find()
     for user in cursor:
         print(user)
-
-debug()

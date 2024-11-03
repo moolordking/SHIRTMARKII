@@ -1,6 +1,6 @@
 
 function addRequest(_callback, spotifyCode, position) {
-	let value = [spotifyCode, position[0], position[1], prompt("home address")].join(":::");
+	let value = [spotifyCode, position[0], position[1]].join(":::");
     $.ajax({
         url: '/process',
         type: 'POST',
