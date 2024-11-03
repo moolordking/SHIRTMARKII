@@ -33,3 +33,12 @@ def get_top_songs(myAuth):
     for item in topTracks['items']:
         tracks.append(item['id']+"@"+get_artist_image(item['id']))
     return ":::".join(tracks)
+
+def add_top_songs(myAuth, lat, long):
+    token = sp_oauth.get_access_token(myAuth)
+    sp = spotipy.Spotify(auth=token['access_token'])
+    user = sp.current_user()
+    topTracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='short_term')
+    tracks = []
+    for item in topTracks['items']:
+        dataman.add_entry(lat, long, item['id'])

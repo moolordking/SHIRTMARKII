@@ -4,10 +4,9 @@
 import csv
 import location
 
-def add_entry(lat, long, track_id, artist_img):
-    with open("data.csv", mode='a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow([lat, long, track_id, artist_img])
+def add_entry(lat, long, track_id):
+    with open('random_song_ids.txt', 'a') as f:
+        f.write(f"{location.get_city([lat, long])}, {track_id}\n")
 
 def get_local_songs(lat, long):
     songs = []
@@ -25,7 +24,3 @@ def get_local_songs(lat, long):
                 songs.append(row)
 
     return songs
-
-add_entry(54.774700874515986, -1.589109503156958, "123456", "photo_of_me.png")
-
-print(get_local_songs(54.77499791269901, -1.5814705719504962))
