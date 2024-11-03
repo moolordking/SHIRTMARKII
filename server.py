@@ -26,7 +26,7 @@ def process():
     # the city
     location = locator.get_city([data_elements[1], data_elements[2]])
 
-    sManager.add_top_songs(data_elements[0], data_elements[1], data_elements[2])
+    # sManager.add_top_songs(data_elements[0], data_elements[1], data_elements[2])
 
     # 10 songs from database
     
