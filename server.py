@@ -4,6 +4,8 @@ import location as locator
 
 import spotifyManager as sManager
 
+import sampleData as sData
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -28,7 +30,8 @@ def process():
     
     # sManager.check_auth(sManager.auth(data_elements[0]))
     
-    songs = sManager.get_top_songs(data_elements[0]) 
+    # songs = sManager.get_top_songs(data_elements[0]) 
+    songs = sData.getSongs(location);
 
     return f"{location}:::{songs}"
 

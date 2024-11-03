@@ -14,7 +14,7 @@ CITIES = ['Lancaster', 'Durham', 'Lincoln', 'Luton', 'Glasgow']
 
 # Parameters for song recommendations
 GENRES = ['pop', 'rock', 'jazz', 'classical', 'hip-hop', 'country', 'edm', 'blues']
-num_tracks = 100
+num_tracks = 50
 track_ids = []
 
 # Function to get random song recommendations

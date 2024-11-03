@@ -1,6 +1,9 @@
 
 let spotifyCode = window.location.href.split("?code=")[1];
 
+let lancaster = [54.042895728584384, -2.7942771994978015];
+let luton = [51.87917934936252, -0.414762899740665];
+
 function setLocation() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(getPosition);
@@ -11,6 +14,7 @@ function setLocation() {
 
 function getPosition(position) {
 	let currentPosition =  [position.coords.latitude, position.coords.longitude];
+	document.getElementsByClassName("LargeText")[0].innerHTML = "Loading...";
 	let place = addRequest(function(position, result) 
 	{
 		place = result.split(":::")[0]
